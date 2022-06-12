@@ -15,7 +15,7 @@ public class FollowCamera : MonoBehaviour
     public float height = 2.0f;
 
     public float moveDamping = 15f;
-    public float rotateDamping = 10f;
+    public float rotateDamping = 150f;
 
     public float targetOffset = 2.0f;
 
