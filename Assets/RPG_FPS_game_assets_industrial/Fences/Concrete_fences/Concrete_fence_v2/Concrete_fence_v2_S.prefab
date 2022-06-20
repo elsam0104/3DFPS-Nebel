@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 33000014169494080}
   - component: {fileID: 23000014090315290}
   - component: {fileID: 65000012913242684}
+  - component: {fileID: 7657350683236701190}
   m_Layer: 0
   m_Name: Concrete_fence_v2_S
   m_TagString: Untagged
@@ -127,6 +128,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5380497, y: 1.0200385, z: 5.6724796}
   m_Center: {x: -0.0000019073484, y: -0.7727375, z: -0.000003814698}
+--- !u!114 &7657350683236701190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013693227596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49d3c06122967a40b149e8700898026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!1 &1000014037010034
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +153,7 @@ GameObject:
   - component: {fileID: 33000012874370198}
   - component: {fileID: 23000011800568128}
   - component: {fileID: 65000010613152302}
+  - component: {fileID: 4904346815201994392}
   m_Layer: 0
   m_Name: Concrete_fence_v2_lattice_S
   m_TagString: Untagged
@@ -222,3 +237,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 1.4342282, z: 5.672476}
   m_Center: {x: 0, y: -0.000000029802322, z: 0}
+--- !u!114 &4904346815201994392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014037010034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49d3c06122967a40b149e8700898026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}

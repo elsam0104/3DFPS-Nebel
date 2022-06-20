@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad52cefc52521044a8e8dcec70a1ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endingSO: {fileID: 11400000, guid: 6a27d451d095bf54f982e96c027b01a9, type: 2}
   state: 0
   traceDist: 30
   attackDist: 2

@@ -9,6 +9,7 @@ public class GameMgr : MonoBehaviour
 
     public GameObject monster;
     public float creatTime = 1f;
+
     public List<Transform> points = new List<Transform>();
     public List<GameObject> monsterPool = new List<GameObject>();
 
@@ -36,7 +37,7 @@ public class GameMgr : MonoBehaviour
             if (instance == null)
             {
                 GameObject container = new GameObject("GameMgr");
-                container.AddComponent<GameMgr>();
+                instance = container.AddComponent<GameMgr>();
             }
         }
         return instance;

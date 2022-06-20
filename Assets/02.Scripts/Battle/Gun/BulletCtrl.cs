@@ -8,7 +8,7 @@ public class BulletCtrl : MonoBehaviour
     public float damage = 20.0f;
 
     // ÃÑ¾Ë ¹ß»ç Èû
-    public float force = 1500.0f;
+    public float force = 2000.0f;
 
     private Rigidbody bulletRigidbody = null;
     private Transform bulletTransform = null;

@@ -13,7 +13,8 @@ public class MonsterCtrl : MonoBehaviour
         DIE,
         PLAYERDIE
     }
-
+    [SerializeField]
+    private EndingSO endingSO;
     //monster's current state
     public State state = State.IDLE;
     //trace length
@@ -134,6 +135,7 @@ public class MonsterCtrl : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
+                    endingSO.killMonster++;
                     yield return new WaitForSeconds(3f);
                     this.gameObject.SetActive(false);
                     break;

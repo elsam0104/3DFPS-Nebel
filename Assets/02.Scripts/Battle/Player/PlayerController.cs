@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
     public float rotationSpeed = 80.0f;
 
-    private Transform playerTransform;
     private Animation playerAnim;
 
     //초기 hp
     private readonly float initHp = 100.0f;
     //현재 hp
     private float currentHp;
-
+    public float CurrentHp { get { return currentHp; } set { currentHp = value; } }
     private Image hpBar;
+
+
     IEnumerator Start()
     {
-        playerTransform = GetComponent<Transform>();
         playerAnim = GetComponent<Animation>();
         currentHp = initHp;
         hpBar = GameObject.FindGameObjectWithTag("HPBAR").GetComponent<Image>();
@@ -72,7 +71,15 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerDie();
             }
+            else if (currentHp <= 30f)
+            {
+                
+            }
         }
+    }
+    private void BloodScreen()
+    {
+
     }
     private void PlayerDie()
     {
@@ -87,6 +94,6 @@ public class PlayerController : MonoBehaviour
     }
     private void DisplayHP()
     {
-        hpBar.fillAmount = currentHp/initHp;
+        hpBar.fillAmount = currentHp / initHp;
     }
 }

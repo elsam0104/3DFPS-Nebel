@@ -10,11 +10,23 @@ public enum ItemType
     BULLET,
     BAG
 }
-
+public class Inventory
+{
+    private List<Item> items = new List<Item>();
+    private int maxItem = 10;
+    private int curItem = 0;
+    public void PutItem(Item item)
+    {
+        if (curItem + 1 >= maxItem)
+            Debug.Log("인벤토리 공간 부족");
+        else
+            items.Add(item);
+    }
+}
 public abstract class Item : MonoBehaviour
 {
     public ItemType itemType;
-    public abstract void UseItem();
+    public abstract void UseItem(PlayerController player);
 }
 interface HoldItem
 {
@@ -22,24 +34,14 @@ interface HoldItem
     void UseHoldItem();
 }
 
-public class Antibiotic : Item, HoldItem
+public class Antibiotic : Item
 {
     Antibiotic()
     {
         itemType = ItemType.ANTIBIOTIC;
     }
-    public override void UseItem()
+    public override void UseItem(PlayerController player)
     {
-        UseHoldItem();
+        player.CurrentHp += 10;
     }
-    public void HoldItem()
-    {
-
-    }
-
-    public void UseHoldItem()
-    {
-
-    }
-
 }
