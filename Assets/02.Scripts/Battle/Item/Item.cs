@@ -12,15 +12,14 @@ public enum ItemType
 }
 public class Inventory
 {
-    private List<Item> items = new List<Item>();
-    private int maxItem = 10;
-    private int curItem = 0;
+    [SerializeField]
+    private PlayerDataSO playerDataSO;
     public void PutItem(Item item)
     {
-        if (curItem + 1 >= maxItem)
+        if (playerDataSO.curItem + 1 >= playerDataSO.maxItem)
             Debug.Log("인벤토리 공간 부족");
         else
-            items.Add(item);
+            playerDataSO.items.Add(item);
     }
 }
 public abstract class Item : MonoBehaviour

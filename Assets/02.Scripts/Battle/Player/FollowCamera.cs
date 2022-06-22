@@ -1,16 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-enum CamType
-{
-    First,
-    Third
-}
+    public enum CamType
+    {
+        First,
+        Third
+    }
+
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField]
     private CamType camType;
+    public CamType GetCamType
+    {
+        get
+        {
+            return camType;
+        }
+        set
+        {
+            camType = value;
+        }
+    }
     [SerializeField]
     private Transform targetTransform;
     [SerializeField]
@@ -53,13 +66,31 @@ public class FollowCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
         rotationX = cameraTransform.eulerAngles.y + mouseX * rotateDamping;
+        //rotationX = Mathf.Clamp(rotationY, -45, 30);
         rotationX = (rotationX > 180.0f) ? rotationX - 360 : rotationX;
         rotationY = rotationY + mouseY * rotateDamping;
-        rotationY = Mathf.Clamp(rotationY, -45, 80);
+        rotationY = Mathf.Clamp(rotationY, -45, 30);
         cameraTransform.eulerAngles = new Vector3(-rotationY, rotationX, 0);
         cameraTransform.position = firstCamPos.position;
-        targetTransform.eulerAngles = cameraTransform.eulerAngles;
+
+        targetTransform.rotation = Quaternion.Euler( 0,rotationX,0);
     }
+    public void CameraShake()
+    {
+        camType = CamType.Third;
+        cameraTransform.gameObject.transform.DOShakePosition(1f,0.2f).OnComplete(() => camType=CamType.First);
+    }
+    //void FirstCamera()
+    //{
+    //    float mouseX = Input.GetAxis("Mouse X");
+    //    float mouseY = Input.GetAxis("Mouse Y");
+    //    rotationX = cameraTransform.eulerAngles.y + mouseX * detailX;
+    //    rotationX = (rotationX > 180.0f) ? rotationX - 360 : rotationX;
+    //    rotationY = rotationY + mouseY * detailY;
+    //    rotationY = Mathf.Clamp(rotationY, -45, 80);
+    //    cameraTransform.eulerAngles = new Vector3(-rotationY, rotationX, 0);
+    //    cameraTransform.position = firstCameraTransform.position;
+    //}
     private void ThreeCam()
     {
         Vector3 pos = targetTransform.position

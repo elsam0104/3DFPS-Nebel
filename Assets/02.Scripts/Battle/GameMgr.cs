@@ -62,7 +62,6 @@ public class GameMgr : MonoBehaviour
         }
         InvokeRepeating("CreatMonster", 2f, creatTime);
     }
-
     void CreatMonster()
     {
         int idx = Random.Range(0, points.Count);

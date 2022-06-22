@@ -396,7 +396,7 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 0
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!1101 &127284103164211587
@@ -527,7 +527,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3719237127952885158}
-    m_Position: {x: 30, y: -130, z: 0}
+    m_Position: {x: 20, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2837761335231517796}
     m_Position: {x: 40, y: -70, z: 0}

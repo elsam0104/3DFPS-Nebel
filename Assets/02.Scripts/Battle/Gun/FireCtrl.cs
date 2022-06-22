@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class FireCtrl : MonoBehaviour
@@ -19,6 +20,8 @@ public class FireCtrl : MonoBehaviour
     // Muzzle flash의 Mesh Renderer 컴포넌트 캐싱
     private MeshRenderer muzzleFlash;
 
+    public UnityEvent FireEvent; 
+
     private void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -32,6 +35,7 @@ public class FireCtrl : MonoBehaviour
         // 마우스 왼쪽 버튼 클릭 했을 때, 
         if( Input.GetMouseButtonDown(0) )
         {
+            FireEvent.Invoke();
             Fire();
         }
     }

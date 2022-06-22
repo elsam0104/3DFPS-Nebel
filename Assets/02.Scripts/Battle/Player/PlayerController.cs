@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
     public float rotationSpeed = 80.0f;
 
     private Animation playerAnim;
-
     //초기 hp
     private readonly float initHp = 100.0f;
     //현재 hp
@@ -39,7 +39,15 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         moveDir.Normalize();
 
-        transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            float fastMove = moveSpeed+5f;
+            transform.Translate(moveDir * fastMove * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        }
 
         transform.Rotate(Vector3.up * r * rotationSpeed * Time.deltaTime);
 
@@ -73,10 +81,11 @@ public class PlayerController : MonoBehaviour
             }
             else if (currentHp <= 30f)
             {
-                
+
             }
         }
     }
+
     private void BloodScreen()
     {
 
