@@ -271,6 +271,21 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5799774538163304419, guid: 3dd1f4f5832096a4d811ddda7b25b7d5, type: 3}
   firePos: {fileID: 915497396}
   fireSfx: {fileID: 8300000, guid: 641ff25f5da444ddf8874d961a56f0c9, type: 3}
+  FireEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: FollowCamera, Assembly-CSharp
+        m_MethodName: CameraShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &3221611
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerDataSO playerDataSO;
     public float moveSpeed = 10.0f;
     public float rotationSpeed = 80.0f;
 
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public float CurrentHp { get { return currentHp; } set { currentHp = value; } }
     private Image hpBar;
 
-
+    private bool isHide =false;
+    public bool IsHide { get { return isHide; } set { isHide = value; } }
     IEnumerator Start()
     {
         playerAnim = GetComponent<Animation>();
