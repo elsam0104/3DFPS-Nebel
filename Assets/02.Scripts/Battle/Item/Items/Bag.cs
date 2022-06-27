@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bag : MonoBehaviour
+public class Bag : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    Bag()
     {
-        
+        itemType = ItemType.BAG;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void UseItem(PlayerController player)
     {
-        
+        player.playerDataSO.maxItem += 5;
     }
 }

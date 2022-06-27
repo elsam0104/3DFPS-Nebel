@@ -13,4 +13,10 @@ public class Bullet : Item
         player.playerDataSO.maxMagazine += 5;
         player.playerDataSO.curMagazine = player.playerDataSO.maxMagazine;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        UseItem(player);
+        Destroy(gameObject);
+    }
 }

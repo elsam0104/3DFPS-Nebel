@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(AudioSource))]
 public class FireCtrl : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerDataSO playerDataSO;
     // ÃÑ¾Ë ÇÁ¸®ÆÕ
     public GameObject bulletPrefab;
 
@@ -20,7 +22,7 @@ public class FireCtrl : MonoBehaviour
     // Muzzle flashÀÇ Mesh Renderer ÄÄÆ÷³ÍÆ® Ä³½Ì
     private MeshRenderer muzzleFlash;
 
-    public UnityEvent FireEvent; 
+    public UnityEvent FireEvent;
 
     private void Start()
     {
@@ -33,10 +35,14 @@ public class FireCtrl : MonoBehaviour
     void Update()
     {
         // ¸¶¿ì½º ¿ÞÂÊ ¹öÆ° Å¬¸¯ ÇßÀ» ¶§, 
-        if( Input.GetMouseButtonDown(0) )
+        if (Input.GetMouseButtonDown(0))
         {
-            FireEvent.Invoke();
-            Fire();
+            if (playerDataSO.curMagazine > 0)
+            {
+                playerDataSO.curMagazine -= 1;
+                FireEvent.Invoke();
+                Fire();
+            }
         }
     }
 

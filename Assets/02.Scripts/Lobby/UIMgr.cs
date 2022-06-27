@@ -8,8 +8,6 @@ public class UIMgr : MonoBehaviour
 {
 
     public Button startButton;
-    public Button optionButton;
-    public Button shopButton;
 
     private UnityAction action;
 
@@ -18,15 +16,15 @@ public class UIMgr : MonoBehaviour
         action = () => OnStartClick();
         startButton.onClick.AddListener(action);
 
-        optionButton.onClick.AddListener(delegate { onButtonClick(optionButton.name); });
+        //optionButton.onClick.AddListener(delegate { onButtonClick(optionButton.name); });
     }
 
     void OnStartClick()
     {
         SceneManager.LoadScene("Game");
     }
-    void onButtonClick(string str)
-    {
-        Debug.Log($"Click {str}!");
-    }
+    //void onButtonClick(string str)
+    //{
+    //    Debug.Log($"Click {str}!");
+    //}
 }

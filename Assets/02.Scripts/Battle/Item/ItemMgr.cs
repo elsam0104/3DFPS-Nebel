@@ -19,6 +19,7 @@ public class ItemMgr : MonoBehaviour
             Instantiate(itemObj[i], curT.position, curT.rotation);
         }
     }
+    
     public void PutItem(Item item)
     {
         if (playerDataSO.curItem + 1 >= playerDataSO.maxItem)

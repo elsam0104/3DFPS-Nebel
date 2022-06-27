@@ -12,4 +12,10 @@ public class Bloodrags : Item
     {
         player.IsHide = true;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        UseItem(player);
+        Destroy(gameObject);
+    }
 }

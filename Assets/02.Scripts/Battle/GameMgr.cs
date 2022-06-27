@@ -12,8 +12,11 @@ public class GameMgr : MonoBehaviour
 
     public List<Transform> points = new List<Transform>();
     public List<GameObject> monsterPool = new List<GameObject>();
-
-    public int maxMonster = 10;
+    [SerializeField]
+    private PlayerDataSO playerDataSO;
+    [SerializeField]
+    private TMP_Text Magazinetext;
+    public int maxMonster = 22;
     private bool isGameOver;
     public bool IsGameOver
     {
@@ -51,6 +54,8 @@ public class GameMgr : MonoBehaviour
     void Start()
     {
         DisplayScore(0);
+        playerDataSO.curMagazine = playerDataSO.maxMagazine;
+        DisplayMagazine();
         CreatMonsterPool();
         Transform spawnPointGroup = GameObject.Find("SpawnPointGrop")?.transform;
         //같은 역할
@@ -61,6 +66,10 @@ public class GameMgr : MonoBehaviour
             points.Add(item);
         }
         InvokeRepeating("CreatMonster", 2f, creatTime);
+    }
+    private void Update()
+    {
+        DisplayMagazine();
     }
     void CreatMonster()
     {
@@ -91,9 +100,13 @@ public class GameMgr : MonoBehaviour
         }
         return null;
     }
+    public void DisplayMagazine()
+    {
+        Magazinetext.text = $"Bullet : {playerDataSO.curMagazine:##0}";
+    }
     public void DisplayScore(int score)
     {
         totalScore += score;
-        scoreText.text = $"<color=#00ff00>Score :</color> <color=#92F9FF>{totalScore:#,##0} </color>";
+        scoreText.text = $"Score : {totalScore:#,##0}";
     }
 }

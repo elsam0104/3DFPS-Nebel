@@ -10,17 +10,21 @@ public class DialogMrg : MonoBehaviour
     public void Start()
     {
         SetDialog("이런... 여긴 어디지");
-    }
-    private void Update()
-    {
         NextDialog("일단 움직이자");
-        
+        EndDialog();
     }
     public void NextDialog(string s)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetDialog(s);
+        }
+    }
+    public void EndDialog()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dialogText.gameObject.SetActive(false);
         }
     }
     public void SetDialog(string s)

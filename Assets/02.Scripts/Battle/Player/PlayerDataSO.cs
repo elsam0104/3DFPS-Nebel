@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(fileName ="PlayerDataSO", menuName = "Scriptable Object/Player")]
 public class PlayerDataSO : ScriptableObject
 {
     public int maxItem = 5;
